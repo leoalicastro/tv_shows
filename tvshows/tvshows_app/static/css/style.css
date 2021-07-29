@@ -1,0 +1,40 @@
+.container{
+    height: 800px;
+    width: 700px;
+    margin: 0px auto;
+}
+
+.title{
+    width: 61%;
+}
+
+.network{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+#rel{
+    margin-left: 10px;
+}
+
+.desc{
+    width: 66%;
+    height: 100px;
+}
+
+.create{
+    margin-top: 20px;
+    margin-left: 33%;
+    margin-bottom: 10px;
+}
+
+#goshow{
+    margin-left: 31%;
+}
+
+table, tr, td, th{
+    border: black 1px solid;
+    border-collapse: collapse;
+    padding: 3px;
+    margin-bottom: 15px;
+}

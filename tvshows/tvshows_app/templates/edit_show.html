@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Show</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    </ul>
+    <div class="container">
+        <a href='/'>Home</a>
+        {% if messages %}
+            <ul>
+            {% for message in messages %}
+                <li>{% if message.tags %} {{ message }} {% endif %}</li>
+            {% endfor %}
+        {% endif %}
+        <h1>Edit Show</h1>
+        <form action="/show/{{ show.id }}/edit" method="POST">
+            {% csrf_token %}
+            <label for="title">Title</label>
+            <input type="text" value="{{ show.title }}" name="title" class="title" required>
+            <br><label for="network">Network </label>
+            <input type ="text" value= "{{ show.network }}" name="network" class="network" required>
+            <label for="release">Release Date</label>
+            <input type="date" name="release" class="release" required>
+            <br><label for ="desc">Description</label>
+            <br><textarea type="text" name="desc" class="desc">{{ show.desc }}</textarea>
+            <br><button class="create">Update</button>
+        </form>
+        <a href="/show/{{ show.id}}" id="goshow">Go to show</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TV shows</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <div class="container">
+        <a href='/'>Home</a>
+        {% if messages %}
+        <ul>
+            {% for message in messages %}
+                <li>{% if message.tags %} {{ message }} {% endif %}</li>
+            {% endfor %}
+        {% endif %}
+        </ul>
+        <h1>Add a New Show</h1>
+        <form action="/add_show" method="POST">
+            {% csrf_token %}
+            <label for="title">Title</label>
+            <input type="text" name="title" class="title" required>
+            <br><label for="network">Network </label>
+            <input type ="text" name="network" class="network" required>
+            <label for="release" id="rel">Release Date</label>
+            <input type="date" name="release" class="release" required>
+            <br><label for ="desc">Description</label>
+            <br><textarea type="text" name="desc" class="desc"></textarea>
+            <br><button class="create">Create</button>
+        </form>
+    </div>
+</body>
+</html>
